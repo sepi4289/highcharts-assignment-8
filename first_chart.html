@@ -8,14 +8,43 @@
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/main.css">
 
-  <!-- add the Highcharts script elements here -->
+  <script src="https://code.highcharts.com/highcharts.js"></script><!-- add the Highcharts script elements here -->
+  <script src="https://code.highcharts.com/themes/sunset.js"></script>
 
 </head>
 <body>
 
   <h1>My first chart with Highcharts</h1>
 
+    <div id="container"></div>
+
+  <script>
+  Highcharts.chart('container', {
+          chart: {
+              type: 'bar'
+          },
+          title: {
+              text: 'Fruit Consumption'
+          },
+          xAxis: {
+              categories: ['Raspberries', 'Apples', 'Bananas', 'Oranges']
+          },
+          yAxis: {
+              title: {
+                  text: 'Fruit eaten'
+              }
+          },
+          series: [{
+              name: 'Penny',
+              data: [6, 1, 0, 4]
+          }, {
+              name: 'Mikey',
+              data: [6, 5, 7, 3]
+          }]
+  });
+</script>
   <!-- add the div and the code BELOW this comment -->
+
 
 
   <!-- don't write anything below these required tags -->

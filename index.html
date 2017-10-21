@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> My first chart with Highcharts </title>
+
+ <link rel="stylesheet" href="styles/pichardo_highcharts.css">
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+  </head>
+  <body>
+    <div id="wrapper">
+
+<h1> Why Infant Mortality Rate and Fertility Rate is Important?  </h1>
+<P>By Sharay Pichardo</p>
+  <div id="container"></div>
+  <p> The data above is from <a href="http://data.un.org/Data.aspx?d=GenderStat&f=inID%3a38" target="_blank">UN Data</a>.</p>
+
+  <p> It’s important to know about infant mortality because it can affect
+    the growth of the population.Measuring the infant mortality rate has become
+    a way of determining if a population is healthy. Some of the indicators to
+    calculate this data are population, families, health, education, work,
+    and political participation.Moreover,  the children that manage to survive
+    after labor are faced with other types of health problems, and tend to die
+    after the first year. After the child dies, families have to cope with health,
+    financial, and emotional distress. If you want to find out more information
+    about infant mortatlity you can visit: <a href="http://jech.bmj.com/content/57/5/344" target="_blank"> BMJ Journals</a> </p>
+
+  <div id="container2"></div>
+<p> The data above is from <a href="http://data.un.org/Data.aspx?q=rate+of+birth+&d=WDI&f=Indicator_Code%3aSP.DYN.TFRT.IN" target="_blank">UN Data</a>.</p>
+
+<p>Fertility rate is important because it measure the growth of a population or
+   an specific region. Countries with low fertility rate could affect the population of a country.
+  This can harm the countries economy by decreasing the consumption of goods.
+   Moreover,The increase of fertility rate can also harm a country by creating
+   difficulties for families such as, feeding and give education to children.
+   If you want to find out more information about fertility rate you can visit: <a href="https://www.cia.gov/library/publications/the-world-factbook/fields/2127.html" target="_blank">CIA Data</a> </p>
+
+</div><!-- end of wrapper -->
+  <!-- nothing below except the scripts -->
+
+  <script>
+
+  Highcharts.chart('container', {
+
+    chart: {
+        type: 'column'
+    },
+
+    title: {
+        text: 'Infant Mortality Rate in 5 Countries in Central America from 2000-2005'
+    },
+
+    xAxis: {
+        categories: ['Belize', 'Costa Rica', 'El Salvador', 'Honduras', 'Mexico']
+    },
+
+    yAxis: {
+        allowDecimals: false,
+        min: 0,
+        title: {
+            text: 'Deaths  per 1000 Live Births'
+        }
+    },
+
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.x + '</b><br/>' +
+                this.series.name + ': ' + this.y + '<br/>' +
+                'Total: ' + this.point.stackTotal;
+        }
+    },
+
+    plotOptions: {
+        column: {
+            stacking: 'normal'
+        }
+    },
+
+    series: [{
+        name: 'Female ',
+        data: [17, 9, 24, 27, 18],
+        stack: 'female'
+    }, {
+        name: 'Male',
+        data: [20, 12, 29, 36, 23],
+        stack: 'male'
+
+    }]
+});
+</script>
+
+
+
+  <script>
+
+  Highcharts.chart('container2', {
+
+      title: {
+          text: 'Fertility Rate in 5 Countries in Central America from 2000-2008'
+      },
+
+      subtitle: {
+          text: 'Source: the UNdata a world of information'
+      },
+
+      yAxis: {
+          title: {
+              text: 'Birth per Women'
+          }
+      },
+      legend: {
+          layout: 'vertical',
+          align: 'right',
+          verticalAlign: 'middle'
+      },
+
+      plotOptions: {
+          series: {
+              label: {
+                  connectorAllowed: false
+              },
+              pointStart: 2000
+          }
+      },
+
+      series: [{
+          name: 'Belize',
+          data: [ 3.6, 3.50, 3.39, 3.28, 3.18, 3.07, 2.98, 2.89, 2.82]
+      }, {
+          name: 'Costa Rica',
+          data: [ 2.37, 2.29, 2.22, 2.16, 2.11, 2.07, 2.03, 2.01, 1.98]
+      }, {
+          name: 'El Salvador ',
+          data: [2.90, 2.79, 2.68, 2.58, 2.48, 2.40, 2.32, 2.25, 2.19]
+      }, {
+          name: 'Honduras',
+          data: [3.99, 3.85, 3.71, 3.56, 3.43, 3.29, 3.16, 3.04, 2.92]
+      }, {
+          name: 'Mexico',
+          data: [2.75, 2.70, 2.65 , 2.60, 2.56, 2.52, 2.48 , 2.45 , 2.42]
+      }],
+
+      responsive: {
+          rules: [{
+              condition: {
+                  maxWidth: 500
+              },
+              chartOptions: {
+                  legend: {
+                      layout: 'horizontal',
+                      align: 'center',
+                      verticalAlign: 'bottom'
+                  }
+              }
+          }]
+      }
+
+  });
+
+</script>
+
+</body>
+</html>
